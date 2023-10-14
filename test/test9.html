@@ -1,0 +1,123 @@
+<div class="u-container-style u-image u-list-item u-repeater-item u-shading u-image-5" data-image-width="2000" data-image-height="1333">
+    <div class="u-container-layout u-similar-container u-container-layout-5">
+        <form action="mailto:avigupta2001ad@gmail.com" method="post"  onsubmit="prepareEmail()">
+
+        
+        <h3 class="u-text u-text-default u-text-14">galaxy</h3>
+        <p hidden name="nameid">assa</p>
+        <p name="price" class="u-text u-text-default u-text-15">price : Rs 199</p>
+        <select style="color: black;" name="case_material" id="case_mat"   name="case_mat">
+            <option value="silicon">silicon case</option>
+            <option value="hard">hard case</option>
+            <option value="glass">glass class</option>
+        </select>
+        <label for="brandSelector1">Select Brand:</label>
+        <select style="color: black;" class="brandSelector"    name="phonebrand">
+            <option value=""  selected="true" disabled="disabled" >Choose Brand</option>
+            <option value="samsung">Samsung</option>
+            <option value="iphone">iPhone</option>
+            <option value="oneplus">OnePlus</option>
+        </select>
+        <label for="modelSelector1">Select Model:</label>
+        <select style="color: black;" class="modelSelector" disabled       name="phonemodel">
+            <option>Select a Brand first</option>
+        </select>
+        <a type="button" class="u-border-2 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-5">
+           <button type="submit">hey</button>
+        </a>
+        <textarea name="message" cols="30" rows="10" hidden></textarea>
+        <br>
+    </form>
+    </div>
+</div>
+<div class="u-container-style u-image u-list-item u-repeater-item u-shading u-image-5" data-image-width="2000" data-image-height="1333">
+    <div class="u-container-layout u-similar-container u-container-layout-5">
+        <form action="mailto:avigupta2001ad@gmail.com" method="post"  onsubmit="prepareEmail()">
+
+        
+        <h3 class="u-text u-text-default u-text-14">galaxy</h3>
+        <p hidden name="nameid">assa</p>
+        <p name="price" class="u-text u-text-default u-text-15">price : Rs 199</p>
+        <select style="color: black;" name="case_material" id="case_mat"   name="case_mat">
+            <option value="silicon">silicon case</option>
+            <option value="hard">hard case</option>
+            <option value="glass">glass class</option>
+        </select>
+        <label for="brandSelector1">Select Brand:</label>
+        <select style="color: black;" class="brandSelector"    name="phonebrand">
+            <option value=""  selected="true" disabled="disabled" >Choose Brand</option>
+            <option value="samsung">Samsung</option>
+            <option value="iphone">iPhone</option>
+            <option value="oneplus">OnePlus</option>
+        </select>
+        <label for="modelSelector1">Select Model:</label>
+        <select style="color: black;" class="modelSelector" disabled       name="phonemodel">
+            <option>Select a Brand first</option>
+        </select>
+        <a type="button" class="u-border-2 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-5">
+           <button type="submit">hey</button>
+        </a>
+        <textarea name="message" cols="30" rows="10" hidden></textarea>
+        <br>
+    </form>
+    </div>
+</div>
+
+
+<script>
+       function prepareEmail() {
+        const nameid = document.getElementsByName("nameid").innerHTML;
+        const price = document.getElementsByName("price").innerHTML;
+        const case_mat = document.getElementById("case_mat").value;
+        const phoneebrand = document.getElementsByName("phonebrand").value;
+        const phoneemodel = document.getElementsByName("phonemodel").value;
+
+
+        // Compose the email body
+        const emailBody = `
+            Name: ${nameid}\n
+            price: ${price}\n
+            case material: ${case_mat}\n
+            phonebrand: ${phoneebrand}\n
+            phonemodel: ${phoneemodel}\m
+        `;
+
+        // Set the email body in the form
+        document.getElementsByName("message")[0].value = emailBody;
+    }
+
+
+
+
+
+
+
+
+    const models = {
+        samsung: ["Galaxy S21", "Galaxy S20", "Galaxy Note 20"],
+        iphone: ["iPhone 13 Pro", "iPhone 12", "iPhone SE"],
+        oneplus: ["OnePlus 9 Pro", "OnePlus 8T", "OnePlus 8"],
+    };
+
+    const brandSelectors = document.querySelectorAll('.brandSelector');
+    const modelSelectors = document.querySelectorAll('.modelSelector');
+
+    brandSelectors.forEach((brandSelector, index) => {
+        const modelSelector = modelSelectors[index];
+
+        brandSelector.addEventListener('change', () => {
+            const selectedBrand = brandSelector.value;
+            const modelsForBrand = models[selectedBrand];
+
+            modelSelector.innerHTML = '';
+
+            modelsForBrand.forEach((model) => {
+                const option = document.createElement('option');
+                option.textContent = model;
+                modelSelector.appendChild(option);
+            });
+
+            modelSelector.removeAttribute('disabled');
+        });
+    });
+</script>
